@@ -32,3 +32,8 @@ const Products = () => {
 };
 
 export default Products;
+
+// packages required
+// react-redux
+// redux
+// redux-thunk

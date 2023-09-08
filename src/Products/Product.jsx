@@ -1,9 +1,17 @@
 import React from "react";
-// import { useDispatch } from "react-redux";
-// import { addToCart, removeFromCart } from "../CartStore/actions";
+import { useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from "../CartStore/actions";
 
 const Product = ({ product }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+  function handleClick(type) {
+    if (type == "remove") {
+      dispatch(removeFromCart(product));
+    } else {
+      dispatch(addToCart(product));
+    }
+  }
   return (
     <React.Fragment>
       <div
@@ -19,8 +27,18 @@ const Product = ({ product }) => {
           </span>
         </p>
         <div className="container">
-          <button className="btn btn-primary m-2 text-center">-</button>
-          <button className="btn btn-primary m-2 text-center">+</button>
+          <button
+            className="btn btn-primary m-2 text-center"
+            onClick={() => handleClick("remove")}
+          >
+            -
+          </button>
+          <button
+            className="btn btn-primary m-2 text-center"
+            onClick={() => handleClick("add")}
+          >
+            +
+          </button>
         </div>
       </div>
     </React.Fragment>
