@@ -1,9 +1,9 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../CartStore/actions";
+// import { useDispatch } from "react-redux";
+// import { addToCart, removeFromCart } from "../CartStore/actions";
 
 const Product = ({ product }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   return (
     <React.Fragment>
       <div
@@ -19,22 +19,8 @@ const Product = ({ product }) => {
           </span>
         </p>
         <div className="container">
-          <button
-            className="btn btn-primary m-2 text-center"
-            onClick={() => {
-              dispatch(addToCart(product));
-            }}
-          >
-            -
-          </button>
-          <button
-            className="btn btn-primary m-2 text-center"
-            onClick={() => {
-              dispatch(removeFromCart(product));
-            }}
-          >
-            +
-          </button>
+          <button className="btn btn-primary m-2 text-center">-</button>
+          <button className="btn btn-primary m-2 text-center">+</button>
         </div>
       </div>
     </React.Fragment>
