@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 // import routes from "../utils/navRoutes";
 import { Link } from "react-router-dom";
 
 const Header = ({ routes }) => {
   const cartCount = useSelector((state) => state.cartReducer.cartArr);
+  useEffect(() => {
+    console.log("header rerender");
+  });
   return (
     <React.Fragment>
       <div className="d-flex justify-content-between bg-light p-2">

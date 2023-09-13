@@ -1,8 +1,10 @@
 import instance from "../utils/axiosInstance";
 
 const productServices = {
-  getAllProducts() {
-    return instance.get("/products");
+  getAllProducts(payload = {}) {
+    return instance.get(
+      `/products?skip=${payload?.skip}&limit=${payload?.limit}`
+    );
   },
   getAllCategories() {
     return instance.get("/products/categories");
