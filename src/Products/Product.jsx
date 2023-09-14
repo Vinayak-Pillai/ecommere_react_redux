@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../CartStore/actions";
 
-const Product = ({ product }) => {
+const Product = ({ product, handleClick }) => {
   const dispatch = useDispatch();
 
   function handleClick(type) {
@@ -18,6 +18,10 @@ const Product = ({ product }) => {
         className="col-2 p-2 border border-1 m-1 d-flex flex-column align-items-center justify-content-between"
         style={{ height: "350px" }}
       >
+        <p className="h5">{parseFloat(Math.random() * 10).toFixed(4)}</p>
+        <button className="btn btn-primary" onClick={handleClick}>
+          Add Product
+        </button>
         <img src={product.images[0]} class="w-100 h-50 mt-2" alt="..." />
         <p className="text-left h4 mt-2">{product.title}</p>
         <p className="text-left h5">
@@ -45,4 +49,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default memo(Product);
